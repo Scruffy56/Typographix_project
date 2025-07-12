@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typographix</title>
@@ -14,8 +17,17 @@
 
         <body>
             <main>
+                
                 <!-- Section 1 -->
                 <section id="section-1">
+                    <!-- Dark Mode Switch -->
+                    <div class="theme-switcher-wrapper">
+                        <div id="theme-switcher" class="theme-switcher">
+                            <span id="toggle-text" class="toggle-text">Light Mode</span>
+                            <i id="toggle-icon" class="fas fa-sun"></i>
+                        </div>
+                    </div>
+
                     <!-- Header -->
                     <header class="header">
                         <h1>Typographix</h1>
@@ -112,6 +124,23 @@
             margin: 2rem auto;
         }
     </style>
+    <script>
+    // Theme switcher toggle
+    document.addEventListener("DOMContentLoaded", function() {
+        const switcher = document.getElementById("theme-switcher");
+        const text = document.querySelector(".toggle-text");
+        switcher.addEventListener("click", function() {
+            const body = document.body;
+            if (body.getAttribute("data-theme") === "dark") {
+                body.removeAttribute("data-theme");
+                text.textContent = "Light Mode";
+            } else {
+                body.setAttribute("data-theme", "dark");
+                text.textContent = "Dark Mode";
+            }
+        });
+    });
+</script>
 
 </head>
 
